@@ -15,20 +15,20 @@
     </head>
     <body>
         <div id="cuadro">
-            <form>
+            <form action="ServletLogin" method="post">
                 <p id="titulo">INICIAR SESION</p>
                 <hr>
                 <br>
                 <label id="subtitulo1">NOMBRE DE USUARIO</label>
                 <br>
                 <br>
-                <input type="text" class="entrada"/>
+                <input type="text" class="entrada" name="usuario"/>
                 <br>
                 <br>
                 <label id="subtitulo2">CONTRASEÑA</label>
                 <br>
                 <br>
-                <input type="password" class="entrada"/>
+                <input type="password" class="entrada" name="password"/>
                 <br>
                 <br>
                 <input type="submit" value="INICIAR SESION" id="boton"/>

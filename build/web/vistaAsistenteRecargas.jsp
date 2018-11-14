@@ -21,8 +21,9 @@
 	</header>
         
         <div id="contenedor">
+            
         <div id="cuadro1">
-            <form>
+             <form action="ServletRecargarTarjetas" method="post">
                 <center>
                     <img src="imagen/tarjetas.png">
                 </center>
