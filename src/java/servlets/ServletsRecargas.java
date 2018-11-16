@@ -5,8 +5,12 @@
  */
 package servlets;
 
-import dao.DAOSesion;
-import entidades.Sesion;
+import command.GestorTareas;
+import command.SuperTarea;
+import command.TareaActualizarEstado;
+import command.TareaActualizarMonto;
+import dao.DAOTarjeta;
+import entidades.Tarjeta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ABEL
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+@WebServlet(name = "ServletsRecargas", urlPatterns = {"/ServletsRecargas"})
+public class ServletsRecargas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -51,6 +55,7 @@ public class ServletLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+              
     }
 
     /**
@@ -65,42 +70,62 @@ public class ServletLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+       
+        String id = request.getParameter("idTarjeta");
+        int idTarjeta = Integer.parseInt(id);
+       
+        String estado = request.getParameter("estado");
         
-        String usuario = request.getParameter("usuario");
-        String password = request.getParameter("password");
+        String idUsu = request.getParameter("idUsuario");
+        int idUsuario = Integer.parseInt(idUsu);
         
+        String montoR = request.getParameter("monto");
+        int monto = Integer.parseInt(montoR);
         
-        Sesion sesion = Sesion.getSingletonInstancia(usuario, password);
-         
-        DAOSesion dao = new DAOSesion();
+        System.out.println(idTarjeta+" "+estado+" "+idUsuario+" "+monto);
         
-        String eltipowe = dao.obtenerTipoSesion(usuario, password);
-        
-        request.setAttribute("usuario", usuario);
-        request.setAttribute("password",password);
+        DAOTarjeta dao = new DAOTarjeta();
+        int valorAntes = dao.obtenerMonto(idTarjeta);
+        String eltipowe = dao.obtenerEstadoTarjeta(idTarjeta);
         
         PrintWriter out = response.getWriter();
         
-        if(eltipowe.equalsIgnoreCase("1")){
-            getServletConfig().getServletContext().getRequestDispatcher("/vistaAsistenteRecargas.jsp").forward(request,response);
-        }else if(eltipowe.equalsIgnoreCase("2")){
-            getServletConfig().getServletContext().getRequestDispatcher("/vistaAsistenteRRHH.jsp").forward(request,response);
-        } else if(eltipowe.equalsIgnoreCase("3")){
-            getServletConfig().getServletContext().getRequestDispatcher("/vistaAsistentePersonal.jsp").forward(request,response);
-        }
-        else{
+        if(eltipowe.equalsIgnoreCase("on")){
+            
+            int montoActual=0;
+            montoActual=valorAntes+monto;
+            
+            SuperTarea st= new SuperTarea();
+            st.addTarea(new TareaActualizarEstado());
+            st.addTarea(new TareaActualizarMonto());
+            GestorTareas gt= new GestorTareas();
+            Tarjeta tarjeta = new Tarjeta(idTarjeta,montoActual,estado,idUsuario,"1");
+            gt.ejecutar(st,tarjeta,montoActual,estado);
+            
             out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
             out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
             out.println("<script>");
             out.println(" $(document).ready(function(){");
-            out.println("swal ('Incorrecto usuario o password','','error');");
+            out.println("swal ('Recarga Exitosa','','success');");
             out.println(" });");
             out.println("</script>");
-            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("recargarTarjetas.jsp");
             rd.include(request,response);
             
-            //getServletConfig().getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
+        }else{
+            
+            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+            out.println("<script>");
+            out.println(" $(document).ready(function(){");
+            out.println("swal ('Tarjeta fuera de servicio','','error');");
+            out.println(" });");
+            out.println("</script>");
+            RequestDispatcher rd = request.getRequestDispatcher("recargarTarjetas.jsp");
+            rd.include(request,response);
         }
+        
+  
         
         
     }

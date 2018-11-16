@@ -28,7 +28,7 @@
                     <img src="imagen/tarjetas.png">
                 </center>
                 <br>
-                <input type="submit" value="RECARGAR TARJETAS" id="boton"/>
+                <input type="submit" value="RECARGAR TARJETAS" class="boton"/>
             </form>
         </div>
         
@@ -38,7 +38,7 @@
                     <img src="imagen/actualizar_cliente_1.png">
                 </center>
                 <br>
-                <input type="submit" value="ACTUALIZAR CLIENTES" id="boton"/>
+                <input type="submit" value="ACTUALIZAR CLIENTES" class="boton"/>
             </form>
         </div>
         
@@ -48,7 +48,7 @@
                     <img src="imagen/act_tarjetas.png">
                 </center>
                 <br>
-                <input type="submit" value="ACTUALIZAR TARJETAS" id="boton"/>
+                <input type="submit" value="ACTUALIZAR TARJETAS" class="boton"/>
             </form>
         </div>
         </div>

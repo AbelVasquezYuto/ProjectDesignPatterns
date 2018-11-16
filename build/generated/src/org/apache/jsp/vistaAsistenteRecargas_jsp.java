@@ -60,13 +60,14 @@ public final class vistaAsistenteRecargas_jsp extends org.apache.jasper.runtime.
       out.write("\t</header>\n");
       out.write("        \n");
       out.write("        <div id=\"contenedor\">\n");
+      out.write("            \n");
       out.write("        <div id=\"cuadro1\">\n");
-      out.write("            <form>\n");
+      out.write("             <form action=\"ServletRecargarTarjetas\" method=\"post\">\n");
       out.write("                <center>\n");
       out.write("                    <img src=\"imagen/tarjetas.png\">\n");
       out.write("                </center>\n");
       out.write("                <br>\n");
-      out.write("                <input type=\"submit\" value=\"RECARGAR TARJETAS\" id=\"boton\"/>\n");
+      out.write("                <input type=\"submit\" value=\"RECARGAR TARJETAS\" class=\"boton\"/>\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("        \n");
@@ -76,7 +77,7 @@ public final class vistaAsistenteRecargas_jsp extends org.apache.jasper.runtime.
       out.write("                    <img src=\"imagen/actualizar_cliente_1.png\">\n");
       out.write("                </center>\n");
       out.write("                <br>\n");
-      out.write("                <input type=\"submit\" value=\"ACTUALIZAR CLIENTES\" id=\"boton\"/>\n");
+      out.write("                <input type=\"submit\" value=\"ACTUALIZAR CLIENTES\" class=\"boton\"/>\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("        \n");
@@ -86,7 +87,7 @@ public final class vistaAsistenteRecargas_jsp extends org.apache.jasper.runtime.
       out.write("                    <img src=\"imagen/act_tarjetas.png\">\n");
       out.write("                </center>\n");
       out.write("                <br>\n");
-      out.write("                <input type=\"submit\" value=\"ACTUALIZAR TARJETAS\" id=\"boton\"/>\n");
+      out.write("                <input type=\"submit\" value=\"ACTUALIZAR TARJETAS\" class=\"boton\"/>\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("        </div>\n");

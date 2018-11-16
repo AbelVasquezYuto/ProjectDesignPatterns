@@ -21,7 +21,8 @@ font-weight: 700;
 font-size: 2.2em;
 	}
 
-#boton{
+.boton{
+    cursor: pointer;
     width: 324px;
     height: 45px;
     border-radius: 6px;

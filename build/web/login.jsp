@@ -22,13 +22,13 @@
                 <label id="subtitulo1">NOMBRE DE USUARIO</label>
                 <br>
                 <br>
-                <input type="text" class="entrada" name="usuario"/>
+                <input type="text" class="entrada" name="usuario" required autofocus/>
                 <br>
                 <br>
                 <label id="subtitulo2">CONTRASEÑA</label>
                 <br>
                 <br>
-                <input type="password" class="entrada" name="password"/>
+                <input type="password" class="entrada" name="password" required/>
                 <br>
                 <br>
                 <input type="submit" value="INICIAR SESION" id="boton"/>

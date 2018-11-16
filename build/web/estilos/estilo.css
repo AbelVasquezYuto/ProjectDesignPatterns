@@ -16,7 +16,7 @@
     opacity: 0.8;
 }
 body{
-    background: url(../imagen/imagen.jpeg);
+    background: url(../imagen/fondoMetro_1.jpg);
 }
 .entrada{
     width: 320px;
@@ -26,6 +26,7 @@ body{
     font-weight: 900;
 }
 #boton{
+    cursor: pointer;
     width: 324px;
     height: 45px;
     border-radius: 6px;
