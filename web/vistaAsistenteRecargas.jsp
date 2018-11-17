@@ -10,47 +10,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Design Patterns</title>
+        <!--
         <link href="estilos/menuAsistenteRecargas.css" rel="stylesheet" type="text/css"/>
+        -->
+        <link href="estilos/menu.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="http://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
+        
     </head>
     <body>
+        <div class="navegacion">
+            <nav>
+		<ul>
+		    <li><a href="recargarTarjetas.jsp">Recargar Tarjeta</a></li>
+		    <li><a href="">Actualizar Clientes </a></li>
+		    <li><a href="">Actualizar Tarjetas </a></li>
+                    <li class="xd"><a href="">ASISTENTE DE RECARGAS </a></li>
+		</ul>
+            </nav>
+	</div>
         
-       <header id="main-header">
-		
-	<span id="site-name">Modulo Asistente de Recargas</span>
-  
-	</header>
         
-        <div id="contenedor">
-            
-        <div id="cuadro1">
-             <form action="ServletRecargarTarjetas" method="post">
-                <center>
-                    <img src="imagen/tarjetas.png">
-                </center>
-                <br>
-                <input type="submit" value="RECARGAR TARJETAS" class="boton"/>
-            </form>
-        </div>
-        
-        <div id="cuadro2">
-            <form>
-                <center>
-                    <img src="imagen/actualizar_cliente_1.png">
-                </center>
-                <br>
-                <input type="submit" value="ACTUALIZAR CLIENTES" class="boton"/>
-            </form>
-        </div>
-        
-        <div id="cuadro3">
-            <form>
-                <center>
-                    <img src="imagen/act_tarjetas.png">
-                </center>
-                <br>
-                <input type="submit" value="ACTUALIZAR TARJETAS" class="boton"/>
-            </form>
-        </div>
-        </div>
     </body>
 </html>
